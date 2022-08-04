@@ -8,7 +8,7 @@ body {
 }
 
 .pokedex {
-  background: #ffd554 url("Images/header-bg.jpg");
+  background: #ffd554 url("./header-bg.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   padding: 10px;
