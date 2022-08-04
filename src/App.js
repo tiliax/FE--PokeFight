@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+// import "./App.css";
 import Pokelist from "./Components/Pokelist";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PokeDetail from "./Components/PokeDetail";

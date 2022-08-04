@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
+import {AppBar, Grid} from "@material-ui/core";
 
 function PokeDetail({ match }) {
   const [pokemonDetail, setPokemonDetail] = useState([]);
@@ -18,12 +19,14 @@ function PokeDetail({ match }) {
 
   return (
     <div className="App">
-      <div className="pokedex">
-        <a href="/">
-          <img src="/Images/pika-top.png" alt="" width="300px" height="200px" />
-        </a>
-        <h2>Details</h2>
-      </div>
+      <AppBar position="static">
+        <div className="pokedex">
+          <a href="/">
+            <img src="/Images/pika-top.png" alt="" width="300px" height="200px" />
+          </a>
+          <h2>Details</h2>
+        </div>
+      </AppBar>
       <div className="details-card">
         <div>
           <img
