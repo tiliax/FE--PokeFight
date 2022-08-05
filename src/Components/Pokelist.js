@@ -23,12 +23,12 @@ function Pokelist() {
     fetchPokemons();
   }, []);
 
-  const fetchPokemons = () => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=807")
+   const fetchPokemons = () => {
+    fetch("https://blooming-bayou-85292.herokuapp.com/pokemon")
       .then((response) => response.json())
       //.then(pokes => console.log(pokes));
-      .then((pokes) => setPokemons(pokes.results));
-  };
+      .then((pokes) => setPokemons(pokes));
+  }; 
 
   // const searchChange = event => {
   //   setSearch(event.target.value);
@@ -52,7 +52,7 @@ function Pokelist() {
       </AppBar>
       <Grid container spacing={2} className={classes.pokedexContainer}>
         {pokemons.map((pokemon, i) => (
-          <Pokecard id={i + 1} key={i} name={pokemon.name} />
+          <Pokecard id={i + 1} key={i} name={pokemon.name.english} />
         ))}
       </Grid>
     </div>
