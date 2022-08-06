@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
-import {AppBar, Grid} from "@material-ui/core";
+import {AppBar} from "@material-ui/core";
+import { Link, useParams } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
-function PokeDetail({ match }) {
+function PokeDetail() {
   const [pokemonDetail, setPokemonDetail] = useState([]);
-
+  const {pokemon} = useParams();
   useEffect(() => {
     fetchName();
     // console.log(match);
   }, []);
 
   const fetchName = () => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${match.params.pokemon}`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
       .then((response) => response.json())
       // .then(detail => console.log(detail));
       .then((detail) => setPokemonDetail(detail));
@@ -31,7 +33,7 @@ function PokeDetail({ match }) {
         <div>
           <img
             className=" detail-img tc dib pa1 ma2 "
-            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${match.params.pokemon}.png`}
+            src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon}.png`}
             alt=""
             width="200px"
             height="200px"
@@ -55,6 +57,9 @@ function PokeDetail({ match }) {
           <br />
           abilities:{" "}
           {pokemonDetail.abilities && pokemonDetail.abilities[0].ability.name}
+        </div>
+        <div>
+        <Link to={`/pokefight/${pokemon}`}>Fight</Link>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Pokecard from "./Pokecard";
+import { Link } from "react-router-dom";
 // import SearchBar from "./SearchBar";
 import {AppBar, Grid} from "@material-ui/core";
 import {  makeStyles } from "@material-ui/core/styles";
@@ -46,6 +47,9 @@ function Pokelist() {
           <a href="/">
             <img  src="/Images/pika-top.png" alt="" width="300px" height="200px" />
           </a>
+          <div>
+            <Link to="/pokefight" >FIGHT</Link>
+          </div>
           <h2 >The Pokelist</h2>
           {/* <SearchBar handleSearch={searchChange} /> */}
         </div>
