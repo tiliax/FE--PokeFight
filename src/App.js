@@ -9,9 +9,9 @@ export default function App() {
     return (
       <Router>
         <Routes>
-        <Route path="/pokefight/:pokemon" element={<PokeFight/>} />
-        <Route path="/:pokemon" element={<PokeDetail/>} />
-        <Route path="/" element={<Pokelist/>} /> 
+          <Route path="/pokefight/:pokemon" element={<PokeFight/>} />
+          <Route path="/:pokemon" element={<PokeDetail/>} />
+          <Route path="/" element={<Pokelist/>} /> 
         </Routes>
  
       </Router>

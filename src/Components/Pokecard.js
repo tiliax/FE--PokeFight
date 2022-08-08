@@ -21,3 +21,4 @@ function Pokecard({ id, name }) {
 }
 
 export default Pokecard;
+ 

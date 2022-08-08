@@ -30,6 +30,18 @@ export default function PokeFight(){
     }, [])
     console.log(poke)
 
+
+    function fightHandler(poke, randomPoke) {
+        const randomNumber = Math.floor(Math.random() * 2) + 1;
+        console.log(randomNumber);
+        console.log(poke);
+        if (randomNumber === 1) {
+            return `${poke.name.english} won!`
+        } else {
+            return `${poke.name.english} lost!!`
+        }
+    };
+
     return(
         <>
             <div className="App">
@@ -43,6 +55,7 @@ export default function PokeFight(){
                  </AppBar>
             </div>
             {spinner ?
+                <>
                 <div className="pokeFight">
                     <div>
                         <Pokecard id={poke.id} key={1} name={poke.name.english} />
@@ -52,12 +65,14 @@ export default function PokeFight(){
                     </div> 
                     <div>
                         <Pokecard id={randomPoke.id} key={2} name={randomPoke.name.english}/>
-                    </div>   
-                </div> : 
+                    </div>
+                </div> 
+                <div className="pokeFight">
+                    <h1>{fightHandler(poke, randomPoke)}</h1>
+                </div>
+            </>
+                : 
                 null}
-                            
-            
-
         </>
     )
 }
