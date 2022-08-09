@@ -30,14 +30,33 @@ export default function PokeFight(){
     }, [])
     console.log(poke)
 
+    function saveWinner(winner){
+        fetch('https://blooming-bayou-85292.herokuapp.com/game/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(winner),
+        })
+        .then((response) => response.json())
+        .then((winner) => {
+            console.log('Success:', winner);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+    }
 
     function fightHandler(poke, randomPoke) {
         const randomNumber = Math.floor(Math.random() * 2) + 1;
         console.log(randomNumber);
         console.log(poke);
         if (randomNumber === 1) {
+            saveWinner(poke)
             return `${poke.name.english} won!`
         } else {
+            saveWinner(randomPoke)
             return `${poke.name.english} lost!!`
         }
     };
@@ -76,3 +95,6 @@ export default function PokeFight(){
         </>
     )
 }
+
+
+// https://platform.wbscodingschool.com/courses/full-stack-web-app/13297/
