@@ -36,7 +36,7 @@ export default function PokeFight(){
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: {"winnerID": winner.id, "winnerName": winner.name.english}
+            body: JSON.stringify({winnerID: winner.id, winnerName: winner.name.english})
         })
         .then((response) => response.json())
         .then((winner) => {
