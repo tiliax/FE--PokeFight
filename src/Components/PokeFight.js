@@ -30,18 +30,20 @@ export default function PokeFight(){
     }, [])
     //console.log(poke)
 
-    function saveWinner(winner){
+    function saveGameResult(winner, enemy){
+        const date = Date.now();
         fetch('https://blooming-bayou-85292.herokuapp.com/game/save', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({winnerID: winner.id, winnerName: winner.name.english})
+            //DO NOT FORGET DATE
+            body: JSON.stringify({winnerID: winner.id, winnerName: winner.name.english, enemyID: enemy.id, enemyName: enemy.name.english, date})
         })
         .then((response) => response.json())
-        .then((winner) => {
+/*         .then((winner) => {
             console.log('Success:', winner);
-        })
+        }) */
         .catch((error) => {
             console.error('Error:', error);
         });
@@ -53,10 +55,10 @@ export default function PokeFight(){
         //console.log(randomNumber);
         //console.log(poke);
         if (randomNumber === 1) {
-            saveWinner(poke)
+            saveGameResult(poke, randomPoke)
             return `${poke.name.english} won!`
         } else {
-            saveWinner(randomPoke)
+            saveGameResult(randomPoke, poke)
             return `${poke.name.english} lost!!`
         }
     };
