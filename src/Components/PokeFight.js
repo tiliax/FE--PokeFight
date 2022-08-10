@@ -28,7 +28,7 @@ export default function PokeFight(){
         setRandomPoke(enemyPoke)
         setSpinner(true)
     }, [])
-    console.log(poke)
+    //console.log(poke)
 
     function saveWinner(winner){
         fetch('https://blooming-bayou-85292.herokuapp.com/game/save', {
@@ -36,7 +36,7 @@ export default function PokeFight(){
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(winner),
+            body: {"winnerID": winner.id, "winnerName": winner.name.english}
         })
         .then((response) => response.json())
         .then((winner) => {
@@ -50,8 +50,8 @@ export default function PokeFight(){
 
     function fightHandler(poke, randomPoke) {
         const randomNumber = Math.floor(Math.random() * 2) + 1;
-        console.log(randomNumber);
-        console.log(poke);
+        //console.log(randomNumber);
+        //console.log(poke);
         if (randomNumber === 1) {
             saveWinner(poke)
             return `${poke.name.english} won!`
