@@ -48,7 +48,7 @@ function Pokelist() {
             <img  src="/Images/pika-top.png" alt="" width="300px" height="200px" />
           </a>
           <div>
-            <Link to="/pokefight" >FIGHT</Link>
+            <Link to="/leaderboard" >Game Details</Link>
           </div>
           <h2 >The Pokelist</h2>
           {/* <SearchBar handleSearch={searchChange} /> */}

@@ -91,3 +91,15 @@ h2 {
   display: flex;
   justify-content: space-around;
 }
+
+/* Game details */
+tr {
+  display: block;
+  float: left;
+}
+th,td {
+  display: block;
+  text-align: left;
+  padding: 6px;
+  border: 1px solid #ccc;
+}
